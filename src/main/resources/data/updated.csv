@@ -1,0 +1,14 @@
+employee_id,employee_name,employee_salary,employee_status,department_details,date_of_joining,employee_address
+1,Shiva,67685434,1,30,28-08-2000,Hyderabad
+2,Ramu,567777,1,20,29-08-2000,Hyderabad
+3,Jeeevan,345435435,0,10,30-08-2000,Hyderabad
+4,Charan,6765756,1,20,31-08-2000,Hyderabad
+5,Tharun,78678678,1,30,01-09-2000,Hyderabad
+6,Ravi,34423,1,10,02-09-2000,Hyderabad
+7,Raghu,544445,1,30,03-09-2000,Hyderabad
+8,Vinil,767786,1,20,04-09-2000,Hyderabad
+9,SaiKumar,5464654,1,20,05-09-2000,Hyderabad
+10,Sriram,2132324,1,30,06-09-2000,Hyderabad
+11,Rahul,43545545,1,10,07-09-2000,Hyderabad
+12,Gopi,987976,1,10,08-09-2000,Hyderabad
+13,Mahesh,564646,1,30,09-09-2000,Hyderabad

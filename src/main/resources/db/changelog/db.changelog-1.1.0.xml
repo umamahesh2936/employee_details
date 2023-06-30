@@ -1,0 +1,182 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-1">
+        <createTable tableName="address">
+            <column autoIncrement="true" name="address_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="state" type="VARCHAR(255)"/>
+            <column name="status" type="INT"/>
+            <column name="village" type="VARCHAR(255)"/>
+            <column name="zip_code" type="BIGINT"/>
+            <column name="student_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-2">
+        <createTable tableName="admin">
+            <column name="admin_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="admin_name" type="VARCHAR(45)"/>
+            <column name="admin_email" type="VARCHAR(45)"/>
+            <column name="admin_password" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-3">
+        <createTable tableName="author">
+            <column autoIncrement="true" name="author_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="author_name" type="VARCHAR(45)"/>
+            <column name="author_age" type="VARCHAR(45)"/>
+            <column name="aurhor_birthdate" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-4">
+        <createTable tableName="course">
+            <column autoIncrement="true" name="course_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="course_code" type="VARCHAR(255)"/>
+            <column name="course_name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-5">
+        <createTable tableName="customer">
+            <column autoIncrement="true" name="customer_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="customer_address" type="VARCHAR(255)"/>
+            <column name="customer_name" type="VARCHAR(255)"/>
+            <column name="customer_phone_number" type="VARCHAR(255)"/>
+            <column name="status" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-6">
+        <createTable tableName="doctor">
+            <column name="doctor_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="doctor_name" type="VARCHAR(45)"/>
+            <column name="doctor_age" type="INT"/>
+            <column name="doctor_specialization" type="VARCHAR(45)"/>
+            <column name="doctor_email" type="VARCHAR(45)"/>
+            <column name="doctor_password" type="VARCHAR(45)"/>
+            <column name="patient_count" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-7">
+        <createTable tableName="employee_foreignkey_sample">
+            <column name="emp_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="emp_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dept_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-8">
+        <createTable tableName="employee_sample_foreignkey">
+            <column name="dept_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="dept_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-9">
+        <createTable tableName="employee_table">
+            <column autoIncrement="true" name="employee_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="employee_name" type="VARCHAR(255)"/>
+            <column name="salary" type="DOUBLE"/>
+            <column name="status" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-10">
+        <createTable tableName="laptop">
+            <column name="laptop_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="laptop_brand" type="VARCHAR(255)"/>
+            <column name="laptop_manufacture_date" type="date"/>
+            <column name="model_no" type="VARCHAR(255)"/>
+            <column name="status" type="INT"/>
+            <column name="student_id" type="INT">
+                <constraints unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-11">
+        <createTable tableName="patient">
+            <column name="patient_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="patient_name" type="VARCHAR(45)"/>
+            <column name="patient_age" type="INT"/>
+            <column name="doctor_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-12">
+        <createTable tableName="student_course">
+            <column name="student_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="course_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-13">
+        <createTable tableName="student_details">
+            <column autoIncrement="true" name="student_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="age" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="birth_date" type="date"/>
+            <column name="status" type="INT"/>
+            <column name="student_name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-14">
+        <createIndex indexName="FKejrkh4gv8iqgmspsanaji90ws" tableName="student_course">
+            <column name="course_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-15">
+        <createIndex indexName="FKey7jgqipx4142mcd1cfbjrllg" tableName="address">
+            <column name="student_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-16">
+        <createIndex indexName="FKox2um0hcqlfbm55nvp2csp2kt" tableName="student_course">
+            <column name="student_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-17">
+        <createIndex indexName="dept_id" tableName="employee_foreignkey_sample">
+            <column name="dept_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-18">
+        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="laptop" constraintName="FK10t04rums1a4p6hndo96u3ofx" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="student_id" referencedTableName="student_details" validate="true"/>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-19">
+        <addForeignKeyConstraint baseColumnNames="course_id" baseTableName="student_course" constraintName="FKejrkh4gv8iqgmspsanaji90ws" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="course_id" referencedTableName="course" validate="true"/>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-20">
+        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="address" constraintName="FKey7jgqipx4142mcd1cfbjrllg" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="student_id" referencedTableName="student_details" validate="true"/>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-21">
+        <addForeignKeyConstraint baseColumnNames="student_id" baseTableName="student_course" constraintName="FKox2um0hcqlfbm55nvp2csp2kt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="student_id" referencedTableName="student_details" validate="true"/>
+    </changeSet>
+    <changeSet author="umamahesh.gudiboina (generated)" id="1687332901583-22">
+        <addForeignKeyConstraint baseColumnNames="dept_id" baseTableName="employee_foreignkey_sample" constraintName="dept_id" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="dept_id" referencedTableName="employee_sample_foreignkey" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

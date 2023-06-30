@@ -1,0 +1,245 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	 <changeSet author="Umamahesh" id="1603460396396-1">
+		<createTable tableName="employee_table">
+			<column autoIncrement="true" name="employee_id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="employee_name" type="VARCHAR(255)" />
+			<column name="salary" type="DOUBLE" />
+			<column name="status" type="INT" />
+		</createTable>
+	</changeSet>
+
+	<changeSet id="1603460396396-2" author="Umamahesh">
+		<renameTable newTableName="employee_details"
+			oldTableName="employee_table" />
+	</changeSet>
+
+	<changeSet id="1603460396396-3" author="Venkat">
+		<addColumn tableName="employee_details">
+			<column name="department" type="INT">
+				<constraints unique="true" />
+			</column>
+		</addColumn>
+	</changeSet>
+
+	 <changeSet id="1603460396396-4" author="Varun">
+		<insert tableName="employee_details">
+			<column name="employee_id" value="1"></column>
+			<column name="employee_name" value="Raghu"></column>
+			<column name="salary" value="1353456"></column>
+			<column name="status" value="1"></column>
+		</insert>
+	</changeSet>
+
+	<changeSet id="1603460396396-5" author="Bhuvan">
+		<renameColumn tableName="employee_details"
+			oldColumnName="department" newColumnName="department_detatils"
+			columnDataType="INT" />
+	</changeSet>
+
+	<changeSet id="1603460396396-6" author="Bhuvan">
+		<renameColumn tableName="employee_details"
+			oldColumnName="department_detatils"
+			newColumnName="department_details" columnDataType="INT" />
+	</changeSet>
+
+	<changeSet id="1603460396396-7" author="Varun">
+		<insert tableName="employee_details">
+			<column name="employee_id" value="2"></column>
+			<column name="employee_name" value="Vinay"></column>
+			<column name="salary" value="4634342"></column>
+			<column name="status" value="1"></column>
+			<column name="department_details" value="10"></column>
+		</insert>
+	</changeSet>
+	<changeSet id="1603460396396-8" author="Rahul">
+		<delete tableName="employee_details">
+			<where>employee_id=2 </where>
+		</delete>
+	</changeSet>
+
+	 <changeSet id="1603460396396-9" author="Ravi">
+		<createView viewName="employee_view">  SELECT employee_id, employee_name
+    FROM employee_details
+   </createView>
+	</changeSet>
+
+	<changeSet id="1603460396396-10" author="Umamahesh">
+		<loadData tableName="employee_details"
+			file="classpath:data/employee_info.csv">
+			<column name="employee_id" type="INT" />
+			<column name="employee_name" type="VARCHAR(255)" />
+			<column name="salary" type="DOUBLE" />
+			<column name="status" type="INT" />
+			<column name="department_details" type="INT" />
+		</loadData>
+	</changeSet>
+
+	<changeSet id="1603460396396-11" author="Umamahesh">
+		<createIndex tableName="employee_details"
+			indexName="employee_index">
+			<column name="employee_name" type="VARCHAR(255)"></column>
+			<column name="salary" type="DOUBLE"></column>
+		</createIndex>
+	</changeSet>
+
+	<changeSet id="1603460396396-12" author="Umamahesh">
+		<renameColumn tableName="employee_details"
+			oldColumnName="salary" newColumnName="employee_salary"
+			columnDataType="DOUBLE" />
+		<renameColumn tableName="employee_details"
+			oldColumnName="status" newColumnName="employee_status"
+			columnDataType="INT" />
+	</changeSet>
+
+	<changeSet id="1603460396396-13" author="Umamahesh">
+		<addNotNullConstraint
+			tableName="employee_details" columnName="employee_status"
+			columnDataType="int" />
+	</changeSet>
+
+	<changeSet id="1603460396396-14" author="Umamahesh">
+		<addColumn tableName="employee_details"
+			schemaName="umamahesh">
+			<column name="DateOfJoined" type="DATE"></column>
+			<column name="employee_address" type="VARCHAR(255)"></column>
+		</addColumn>
+	</changeSet>
+
+	<changeSet id="1603460396396-15" author="Umamahesh">
+		<addNotNullConstraint
+			tableName="employee_details" columnName="employee_name"
+			columnDataType="VARCHAR(255)" />
+	</changeSet>
+
+	<changeSet id="1603460396396-16" author="Umamahesh">
+		<renameColumn tableName="employee_details"
+			oldColumnName="DateOfJoined" newColumnName="date_of_joining"
+			columnDataType="DATE" />
+	</changeSet>
+
+	<changeSet id="1603460396396-17" author="Umamahesh">
+		<insert tableName="employee_details">
+			<column name="employee_id" value="10"></column>
+			<column name="employee_name" value="Vinil"></column>
+			<column name="employee_salary" value="8568565"></column>
+			<column name="employee_status" value="1"></column>
+			<column name="date_of_joining" value="2003-08-25"></column>
+			<column name="employee_address" value="Hyderabad"></column>
+			<column name="department_details" value="20"></column>
+		</insert>
+	</changeSet>
+
+	<changeSet id="1603460396396-18" author="Umamahesh">
+		<renameView oldViewName="employee_view"
+			newViewName="employee_view_details" />
+	</changeSet>
+	
+	<changeSet id="1603460396396-19" author="Umamahesh">
+		<update tableName="employee_details">
+			<column name="date_of_joining" type="DATE"
+				valueDate="2000-12-16"></column>
+			<where>employee_id=10</where>
+		</update>
+	</changeSet>
+
+	<changeSet id="1603460396396-20" author="Umamahesh">
+	</changeSet>
+
+	<changeSet id="1603460396396-21" author="Umamahesh">
+		<update tableName="employee_details">
+			<column name="date_of_joining" type="DATE"
+				valueDate="2000-12-16"></column>
+			<where>employee_id=9</where>
+		</update>
+	</changeSet>
+
+	<changeSet id="1603460396396-22" author="Umamahesh">
+		<createView viewName="employee_view" schemaName="umamahesh">
+	SELECT employee_id,employee_salary,department_details FROM employee_details	</createView>
+	</changeSet>
+
+	<changeSet id="1603460396396-23" author="Umamahesh">
+		<sql> UPDATE employee_details SET employee_salary =employee_salary *
+			1.5 WHERE
+			department_details
+			=20;
+		</sql>
+	</changeSet>
+
+	<changeSet id="1603460396396-24" author="Umamahesh">
+		<createTable tableName="employee_sample_foreignkey_1">
+			<column name="dept_id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="dept_name" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="1603460396396-25" author="Umamahesh">
+		<addColumn tableName="employee_details"
+			schemaName="umamahesh">
+			<column type="INT" name="dept_id">
+				<constraints nullable="false" />
+			</column>
+		</addColumn>
+	</changeSet>
+
+	<changeSet id="1603460396396-26" author="Umamahesh">
+		<dropColumn tableName="employee_details"
+			schemaName="umamahesh">
+			<column name="dept_id" type="INT"></column>
+		</dropColumn>
+	</changeSet>
+
+	<changeSet id="1603460396396-27" author="Umamahesh">
+		<createTable tableName="employee_foreignkey_sample_1"
+			schemaName="umamahesh">
+			<column name="emp_id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="emp_name" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="dept_id" type="INT">
+				<constraints foreignKeyName="dept_id"
+					referencedColumnNames="dept_id"
+					referencedTableName="employee_sample_foreignkey_1" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="1603460396396-28" author="Umamahesh">
+
+		<loadUpdateData tableName="employee_details"
+			primaryKey="employee_id" file="classpath:data/updated.csv"
+			schemaName="umamahesh">
+			<column name="employee_id" type="INT" />
+			<column name="employee_name" type="VARCHAR(255)" />
+			<column name="employee_salary" type="DOUBLE" />
+			<column name="employee_status" type="INT" />
+			<column name="department_details" type="INT" />
+			<column name="date_of_joining" type="DATE" />
+			<column name="employee_address" type="VARCHAR(255)" />
+		</loadUpdateData>
+	</changeSet>
+	
+	<changeSet id="1603460396396-29" author="Umamahesh">
+		<insert tableName="employee_details">
+			<column name="employee_id" value="14"></column>
+			<column name="employee_name" value="Eshwar"></column>
+			<column name="employee_salary" value="1353456"></column>
+			<column name="employee_status" value="1"></column>
+		</insert>
+	</changeSet> 
+
+</databaseChangeLog>
